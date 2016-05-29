@@ -2,6 +2,7 @@
 import json
 
 # Third-party app imports
+import urllib3
 import requests
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
@@ -34,3 +35,17 @@ def get_login_token():
     data = json.loads(r.text)
     token = data.get('token')
     return token
+
+
+def get_publisherfeeds():
+    token = get_login_token()
+    headers = {
+        "content-type": "application/json",
+        "accept": "application/json",
+        "authorization": "Bearer " + token
+    }
+
+    r = requests.get(base_url + "/publisherfeeds/?limit=1000",
+                     headers=headers, verify=False)
+
+    return r.json()

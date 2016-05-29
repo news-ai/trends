@@ -1,9 +1,9 @@
 # Stdlib imports
-import urllib3
 import json
 import datetime
 
 # Third-party app imports
+import urllib3
 import requests
 import dateutil.parser as parser
 from pymongo import MongoClient
