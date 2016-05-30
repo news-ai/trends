@@ -1,10 +1,12 @@
+# Stdlib imports
 import datetime
 
-import dateutil.parser as parser
+# Third-party app imports
 from pattern.web import Newsfeed, plaintext, HTTP404NotFound
-from pattern.db import date as dbdate
 from pattern.vector import Model, Document, LEMMA
 
+# Imports from app
+from trends.utils.parser import datetext
 from trends.internal.context import get_publisherfeeds
 
 
@@ -16,12 +18,8 @@ def feeds_to_trends(feeds):
         news = {}
         try:
             for story in Newsfeed().search(url, cached=False):
-                dt = parser.parse(story.date)
-                dt = dt.strftime("%Y-%m-%d")
-                d = str(dbdate(dt, format='%Y-%m-%d'))
+                d, s = datetext(story.date, story.description)
 
-                s = plaintext(story.description)
-                print s
                 # Each key in the news dictionary is a date: news is grouped per day.
                 # Each value is a dictionary of id => story items.
                 # We use hash(story.description) as a unique id to avoid duplicate

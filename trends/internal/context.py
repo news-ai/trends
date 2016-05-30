@@ -37,6 +37,19 @@ def get_login_token():
     return token
 
 
+def get_articles(limit):
+    token = get_login_token()
+    headers = {
+        "content-type": "application/json",
+        "accept": "application/json",
+        "authorization": "Bearer " + token
+    }
+
+    r = requests.get(base_url + '/articles/?limit=' + str(limit),
+                     headers=headers, verify=False)
+    return r.json()
+
+
 def get_publisherfeeds():
     token = get_login_token()
     headers = {
