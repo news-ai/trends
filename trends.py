@@ -8,7 +8,7 @@ import requests
 import dateutil.parser as parser
 from pymongo import MongoClient
 from newspaper import Article
-from pattern.web import Newsfeed, plaintext, HTTP404NotFound
+from pattern.web import Newsfeed, plaintext
 from pattern.db import date as datecalc
 from pattern.vector import Model, Document, LEMMA
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
