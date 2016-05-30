@@ -8,6 +8,8 @@ from pattern.vector import Model, Document, LEMMA
 from trends.internal.context import get_publisherfeeds
 
 
+# You need data from multiple days to make this particular function work
+# So you need to download data from the current day and the previous days.
 def feeds_to_trends(feeds):
     for url in feeds:
         url = url['feed_url']

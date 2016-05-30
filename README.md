@@ -17,3 +17,7 @@ Complex trend analysis
 ### Questions to ask
 
 1. Why is something trending and how did that trend evolve / originate
+
+### Approaches
+
+- Download all the data for articles in the past & then when new articles come in process those.
