@@ -12,6 +12,6 @@ jieba3k>=0.35.1
 python-dateutil>=2.4.0
 Pattern==2.6
 six==1.10.0
-urllib3==1.15.1
+urllib3==1.26.5
 wheel==0.24.0
 -e git+https://github.com/news-ai/newspaper@95297299b0a4db17e32b4a2d67533742de0ed876#egg=newspaper-origin_python-2-head
